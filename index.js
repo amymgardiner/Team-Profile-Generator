@@ -275,7 +275,9 @@ const writeFile = (data) => {
 // which is then followed by either intern or engineer input
 addManager()
     .then(menuPage)
-    .then(teamArray => generateProfile(teamArray))
+    .then((data) => {
+      generateProfile(JSON.stringify(teamArray))
+    })
     .then(pageHTML => writeFile(pageHTML))
     .catch(err => {
       console.log(err);

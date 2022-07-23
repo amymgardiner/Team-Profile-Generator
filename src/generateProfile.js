@@ -1,6 +1,8 @@
 const generateProfile = (data) => {
     pageArray = [];
 
+    data = JSON.parse(data)
+
     for (let i = 0; i < data.length; i++) {
         const employee = data[i];
         const role = employee.getRole();
@@ -90,7 +92,6 @@ const generateTeamPage = function(employeeCards) {
     return `
     <!DOCTYPE html>
     <html lang="en">
-
     <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -100,9 +101,7 @@ const generateTeamPage = function(employeeCards) {
     <link rel="stylesheet" href="stlye.css">
     <title>Team Profile</title>
     </head>
-
     <body>
-
     <header>
         <h1>My Team</h1>
     </header>
@@ -110,9 +109,7 @@ const generateTeamPage = function(employeeCards) {
     <main>
     ${employeeCards}
     </main>
-
     </body>
-
     </html>`;
 };
 

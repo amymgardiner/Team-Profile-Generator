@@ -98,6 +98,26 @@ const menuPage = () => {
 const addEmployee = () => {
     return inquirer.prompt([
         {
+            type: 'list',
+            name: 'role',
+            message: "Choose your team member's role.",
+            choices: ['Engineer', 'Intern']
+        },
+    ])
+    .then(employeeRole => {
+        let { role } = employeeRole
+
+        if (role === 'Engineer') {
+            addEngineer();
+        } else {
+            addIntern();
+        }
+    })
+};
+
+const addEngineer = () => {
+    return inquirer.prompt([
+        {
             type: 'input',
             name: 'name',
             message: "Enter team member's name. (Required.)",
@@ -109,12 +129,6 @@ const addEmployee = () => {
                 return false;
               }
             }
-        },
-        {
-            type: 'list',
-            name: 'role',
-            message: "Choose your team member's role.",
-            choices: ['Engineer', 'Intern']
         },
         {
             type: 'input',
@@ -146,8 +160,8 @@ const addEmployee = () => {
             type: 'input',
             name: 'github',
             message: "Enter team member's GitHub username. (Required.)",
-            validate: officeNumberInput => {
-                if (officeNumberInput) {
+            validate: githubInput => {
+                if (githubInput) {
                   return true;
                 } else {
                   console.log("Please enter the team member's GitHub username.");
@@ -156,8 +170,70 @@ const addEmployee = () => {
               }
         },
     ])
-    .then(employeeInput => {
-        let { name, role, employeeId, email, github } = employeeInput;
+    .then(engineerInput => {
+        let { name, role, employeeId, email, github } = engineerInput;
+
+        menuPage();
+    })
+}
+
+const addIntern = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: "Enter team member's name. (Required.)",
+            validate: nameInput => {
+              if (nameInput) {
+                return true;
+              } else {
+                console.log("Please enter the team member's name.");
+                return false;
+              }
+            }
+        },
+        {
+            type: 'input',
+            name: 'employeeId',
+            message: "Enter team member's employee ID. (Required.)",
+            validate: employeeIdInput => {
+              if (employeeIdInput) {
+                return true;
+              } else {
+                console.log("Please enter the team member's ID.");
+                return false;
+              }
+            }
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "Enter team member's email address. (Required.)",
+            validate: emailInput => {
+              if (emailInput) {
+                return true;
+              } else {
+                console.log("Please enter the team member's email address.");
+                return false;
+              }
+            }
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: "Enter team member's school. (Required.)",
+            validate: schoolInput => {
+                if (schoolInput) {
+                  return true;
+                } else {
+                  console.log("Please enter the team member's school.");
+                  return false;
+                }
+              }
+        },
+    ])
+    .then(internInput => {
+        let { name, role, employeeId, email, school } = internInput;
 
         menuPage();
     })

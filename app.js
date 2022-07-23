@@ -2,57 +2,61 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generateProfile = require('./lib/generateProfile');
 
-const questions = [
-    {
-        type: 'input',
-        name: 'managerName',
-        message: "Enter team manager's name. (Required.)",
-        validate: managerNameInput => {
-          if (managerNameInput) {
-            return true;
-          } else {
-            console.log("Please enter the team mangers's name.");
-            return false;
-          }
-        }
-    },
-    {
-        type: 'input',
-        name: 'managerID',
-        message: "Enter team manager's ID. (Required.)",
-        validate: managerIdInput => {
-          if (managerIdInput) {
-            return true;
-          } else {
-            console.log("Please enter the team mangers's ID.");
-            return false;
-          }
-        }
-    },
-    {
-        type: 'input',
-        name: 'managerEmail',
-        message: "Enter team manager's email address. (Required.)",
-        validate: managerEmailInput => {
-          if (managerEmailInput) {
-            return true;
-          } else {
-            console.log("Please enter the team mangers's email address.");
-            return false;
-          }
-        }
-    },
-    {
-        type: 'input',
-        name: 'managerNumber',
-        message: "Enter team manager's office phone number.",
-        validate: managerNumberInput => {
-            if (managerNumberInput) {
-              return true;
-            } else {
-              console.log("Please enter the team mangers's office phone number.");
-              return false;
+const addManager = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: "Enter team manager's name. (Required.)",
+            validate: nameInput => {
+              if (nameInput) {
+                return true;
+              } else {
+                console.log("Please enter the team mangers's name.");
+                return false;
+              }
             }
-          }
-    },
-]
+        },
+        {
+            type: 'input',
+            name: 'employeeId',
+            message: "Enter team manager's employee ID. (Required.)",
+            validate: employeeIdInput => {
+              if (employeeIdInput) {
+                return true;
+              } else {
+                console.log("Please enter the team mangers's ID.");
+                return false;
+              }
+            }
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "Enter team manager's email address. (Required.)",
+            validate: emailInput => {
+              if (emailInput) {
+                return true;
+              } else {
+                console.log("Please enter the team mangers's email address.");
+                return false;
+              }
+            }
+        },
+        {
+            type: 'input',
+            name: 'officeNumber',
+            message: "Enter team manager's office phone number.",
+            validate: officeNumberInput => {
+                if (officeNumberInput) {
+                  return true;
+                } else {
+                  console.log("Please enter the team mangers's office phone number.");
+                  return false;
+                }
+              }
+        },
+    ]);
+};
+
+addManager()

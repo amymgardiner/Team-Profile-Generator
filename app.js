@@ -2,12 +2,15 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generateProfile = require('./lib/generateProfile');
 
+// links lib pages of the team member profile class constructor functions
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
+// empty array for team members
 const teamArray = [];
 
+// start of node program - asks for manager information
 const addManager = () => {
     return inquirer.prompt([
         {
@@ -72,6 +75,7 @@ const addManager = () => {
     });
 };
 
+// after manager is added, the next part of the node program asks if the team is finished being built or needs more team members
 const menuPage = () => {
     console.log(`
     =================
@@ -99,6 +103,7 @@ const menuPage = () => {
     })
 };
 
+// if more team members will be added, this asks if they're an intern or engineer
 const addEmployee = () => {
     return inquirer.prompt([
         {
@@ -119,6 +124,7 @@ const addEmployee = () => {
     })
 };
 
+// if engineer was selected, this gets their information and then returns to the menu page
 const addEngineer = () => {
     return inquirer.prompt([
         {
@@ -185,6 +191,7 @@ const addEngineer = () => {
     })
 }
 
+// if intern was selected, this gets their information and then returns to the menu page
 const addIntern = () => {
     return inquirer.prompt([
         {
@@ -251,5 +258,8 @@ const addIntern = () => {
     })
 };
 
+// function to initialize the node program, and to make sure manager runs first followed by the menu program
+// which then is followed by the selection of the team member roles
+// which is then followed by either intern or engineer input
 addManager()
     .then(menuPage)

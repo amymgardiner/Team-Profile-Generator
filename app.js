@@ -55,12 +55,12 @@ const addManager = () => {
         {
             type: 'input',
             name: 'officeNumber',
-            message: "Enter team manager's office phone number.",
+            message: "Enter team manager's office number.",
             validate: officeNumberInput => {
                 if (officeNumberInput) {
                   return true;
                 } else {
-                  console.log("Please enter the team mangers's office phone number.");
+                  console.log("Please enter the team mangers's office number.");
                   return false;
                 }
               }

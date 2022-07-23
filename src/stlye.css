@@ -1,0 +1,29 @@
+header {
+    background-color: #4A4E69;
+    padding: 15px 0 15px 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    background-size: cover;
+}
+
+header h1 {
+    color: #F2E9E4;
+    font-size: 4vw;
+}
+
+.card-header {
+    background-color: #598392;
+    color: #EFF6E0;
+    text-align: center;
+}
+
+.card-body {
+    background-color: #F2E9E4;
+}
+
+.list-group {
+    color: #124559;
+}

@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateProfile = require('./lib/generateProfile');
+const generateProfile = require('./src/generateProfile');
 
 // links lib pages of the team member profile class constructor functions
 const Manager = require('./lib/Manager');
@@ -98,7 +98,7 @@ const menuPage = () => {
         if (moreMembers === 'Yes') {
             addEmployee();
         } else {
-            console.log(teamArray)
+            return teamArray
         }
     })
 };
@@ -258,8 +258,25 @@ const addIntern = () => {
     })
 };
 
+// function to generate the team profile
+const writeFile = (data) => {
+  fs.writeFile('./dist/index.html', data, err => {
+    if (err) {
+      console.log(err);
+      return;
+    } else {
+      console.log("Your team profile has been successfully created!")
+    }
+  })
+};
+
 // function to initialize the node program, and to make sure manager runs first followed by the menu program
 // which then is followed by the selection of the team member roles
 // which is then followed by either intern or engineer input
 addManager()
     .then(menuPage)
+    .then(teamArray => generateProfile(teamArray))
+    .then(pageHTML => writeFile('index.html', pageHTML))
+    .catch(err => {
+      console.log(err);
+    })

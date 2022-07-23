@@ -65,6 +65,10 @@ const addManager = () => {
     ])
     .then(managerInput => {
         const { name, employeeId, email, officeNumber } = managerInput;
+
+        const manager = new Manager (name, employeeId, email, officeNumber);
+
+        teamArray.push(manager);
     });
 };
 
@@ -90,7 +94,7 @@ const menuPage = () => {
         if (moreMembers === 'Yes') {
             addEmployee();
         } else {
-            return;
+            console.log(teamArray)
         }
     })
 };
@@ -171,7 +175,11 @@ const addEngineer = () => {
         },
     ])
     .then(engineerInput => {
-        let { name, role, employeeId, email, github } = engineerInput;
+        let { name, employeeId, email, github } = engineerInput;
+
+        let engineer = new Engineer (name, employeeId, email, github);
+        
+        teamArray.push(engineer);
 
         menuPage();
     })
@@ -233,7 +241,11 @@ const addIntern = () => {
         },
     ])
     .then(internInput => {
-        let { name, role, employeeId, email, school } = internInput;
+        let { name, employeeId, email, school } = internInput;
+
+        let intern = new Intern (name, employeeId, email, school);
+
+        teamArray.push(intern);
 
         menuPage();
     })

@@ -276,7 +276,8 @@ const writeFile = (data) => {
 addManager()
     .then(menuPage)
     .then((data) => {
-      generateProfile(JSON.stringify(teamArray))
+      const htmldata = generateProfile(teamArray)
+      return htmldata;
     })
     .then(pageHTML => writeFile(pageHTML))
     .catch(err => {

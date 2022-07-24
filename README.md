@@ -37,3 +37,5 @@ node index.js
 An example of the finished team profile can be seen in the "dist" folder in my github repository.
 
 Here is a video I made of myself using the program and the finished result shown in VS Code and on my GitHub repository.
+
+https://user-images.githubusercontent.com/99151426/180629141-b9466bf7-7651-4562-9717-02099cc9634e.mp4

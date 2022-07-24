@@ -6,7 +6,7 @@ A Node.js command-line application that takes in information about employees on 
 
 ## What it does
 
-It is a a command-line application that accepts user input. When the user is prompted for their team members and their information, then an HTML file is generated that displays a nicely formatted team roster based on that user input. This HTML file will be found in the "dist" folder, where a linked CSS file is already completed.
+It is a command-line application that accepts user input. When the user is prompted for their team members and their information, then an HTML file is generated that displays a nicely formatted team roster based on that user input. This HTML file will be found in the "dist" folder, where a linked CSS file is already completed.
 
 When viewing the created page, if the user clicks on an email address in the HTML, then their default email program opens and populates the TO field of the email with the address. Also, when the user clicks on the GitHub username, then that GitHub profile opens in a new tab.
 

@@ -17,9 +17,11 @@ If you select the engineer option, then you'll be prompted to enter the engineer
 ## How to use it
 
 To use this program, you would first need to clone my GitHub repository:
+
 (https://github.com/amymgardiner/Team-Profile-Generator)
 
 If you don't already, you would also need to download and install Node.js. You can read how to do that here:
+
 (https://coding-boot-camp.github.io/full-stack/nodejs/how-to-install-nodejs)
 
 Once cloned, open up your command line terminal and go to the file containing the repository on your computer. Then type in the following command:

@@ -60,7 +60,7 @@ const generateEngineer = function(engineer) {
                 <li class="list-group-item">Name: ${engineer.name}</li>
                 <li class="list-group-item">Employee ID: ${engineer.employeeId}</li>
                 <li class="list-group-item">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></li>
-                <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.github}">${engineer.github}</a></li>
+                <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.github}" target="_blank">${engineer.github}</a></li>
             </ul>
         </div>
     </div>

@@ -98,7 +98,7 @@ const menuPage = () => {
         if (moreMembers === 'Yes') {
             addEmployee();
         } else {
-            return teamArray
+          writeFile();
         }
     })
 };
@@ -260,7 +260,7 @@ const addIntern = () => {
 
 // function to generate the team profile
 const writeFile = (data) => {
-  fs.writeFile('./dist/index.html', data, err => {
+  fs.writeFile('./dist/index.html', generateProfile(teamArray), err => {
     if (err) {
       console.log(err);
       return;
@@ -275,11 +275,3 @@ const writeFile = (data) => {
 // which is then followed by either intern or engineer input
 addManager()
     .then(menuPage)
-    .then((data) => {
-      const htmldata = generateProfile(teamArray)
-      return htmldata;
-    })
-    .then(pageHTML => writeFile(pageHTML))
-    .catch(err => {
-      console.log(err);
-    })

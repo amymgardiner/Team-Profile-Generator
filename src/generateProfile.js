@@ -29,6 +29,7 @@ const generateProfile = (data) => {
     return generateTeam;
 };
 
+// generateProfile will create this as an employee card, if there is a manager (which there always will be)
 const generateManager = function(manager) {
     return `
     <div class="container">
@@ -48,6 +49,7 @@ const generateManager = function(manager) {
         </div>`;
 };
 
+// generateProfile will create this as an employee card, if there is an engineer
 const generateEngineer = function(engineer) {
     return `
     <div class="container">
@@ -67,6 +69,7 @@ const generateEngineer = function(engineer) {
 </div>`;
 };
 
+// generateProfile will create this as an employee card, if there is an intern
 const generateIntern = function(intern) {
     return `
     <div class="container">
@@ -86,6 +89,8 @@ const generateIntern = function(intern) {
         </div>`;
 };
 
+// main page html with section to add any employee cards generated from generateProfile
+// the css page is already linked so we don't generate that since it will always live in the dist folder and never change
 const generateTeamPage = function(employeeCards) {
     return `
     <!DOCTYPE html>
@@ -111,5 +116,5 @@ const generateTeamPage = function(employeeCards) {
     </html>`;
 };
 
-
+// link back to index.js
 module.exports = generateProfile;
